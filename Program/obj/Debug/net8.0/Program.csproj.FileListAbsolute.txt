@@ -1,0 +1,4 @@
+D:\.vscode\VendingMachine\Program\obj\Debug\net8.0\Program.GeneratedMSBuildEditorConfig.editorconfig
+D:\.vscode\VendingMachine\Program\obj\Debug\net8.0\Program.AssemblyInfoInputs.cache
+D:\.vscode\VendingMachine\Program\obj\Debug\net8.0\Program.AssemblyInfo.cs
+D:\.vscode\VendingMachine\Program\obj\Debug\net8.0\Program.csproj.CoreCompileInputs.cache
