@@ -1,39 +1,39 @@
-namespace Item;
+namespace Product {
 class Item{
 
 // Properties
-    string Name {get; set; };
-    double Price {get; set; };
-    int Quantity {get; set; };
+    string Name {get; set; }
+    double Price {get; set; }
+    int Quantity {get; set; }
 
 // Constructor
     public Item (string name, double price, int quantity){
-        Name = name.ToLower();
+        Name = name;
         Price = price;
         Quantity = quantity;
     }
 
 // Getters
-    public string get_name(){
-        return name;
+    public string GetName(){
+        return Name;
     }
 
-    public double get_price(){
-        return price;
+    public double GetPrice(){
+        return Price;
     }
-    public int get_quantity(){
-        return quantity;
+    public int GetQuantity(){
+        return Quantity;
     }
 
 // Setters
-    public void set_price(double newPrice){
+    public void SetPrice(double newPrice){
         Price = newPrice;
     }
-    public void set_name(string newName){
-        this.Name = newName
+    public void SetName(string newName){
+        this.Name = newName;
     }
-    public void set_quantity(int newQuantity){
-        Quantity = newQuantity
+    public void Setuantity(int newQuantity){
+        Quantity = newQuantity;
     }
 }
-
+}
