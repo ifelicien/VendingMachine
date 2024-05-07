@@ -31,6 +31,7 @@ class Program{
         
         case 1:
             Console.WriteLine($"{coke.GetName()}.");
+            double ItemCost = coke.GetPrice();
             break;
         
         case 2:
@@ -54,6 +55,19 @@ class Program{
         break;
         }
 
+
+    }
+    public static bool ValidateCoin(double cost){
+    
+    return false;
+    }
+    public static bool CheckPaid(double cost, double[] paid){
+        double TotalPaid = 0;
+        
+        for (int i = 0; i < paid.Length; i++){
+            TotalPaid += paid[i];
+        }
+        return TotalPaid >= cost;
     }
 
 }
