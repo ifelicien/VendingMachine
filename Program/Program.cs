@@ -1,6 +1,7 @@
 ﻿using Product;
 using Currency;
 class Program{
+    
     public static void Main(string[] args){
 
         //create products 
@@ -10,13 +11,6 @@ class Program{
         Item chexMix = new Item("Chex Mix", .60, 30);
         Item pepsi = new Item("Pepsi", .90, 30);
         
-        Money penny = new Money("Penny", .01);
-        Money nickel = new Money("Nickel", .05);
-        Money dime = new Money("Dime", .10);
-        Money quarter = new Money("Quarter", .25);
-        Money oneDollar = new Money("One Dollar", 1.00);
-        Money fiveDollar = new Money("Five Dollar", 5.00);
-
         Console.WriteLine($"Menu:\n1. {coke.GetName()}       {coke.GetPrice()}");
         Console.WriteLine($"2. {doritos.GetName()}    {doritos.GetPrice()}");
         Console.WriteLine($"3. {snickers.GetName()}   {snickers.GetPrice()}");
@@ -49,6 +43,9 @@ class Program{
         case 5:
             Console.WriteLine($"{pepsi.GetName()}.");
             break;
+        case 6:
+            DisplayTotals();
+            break;
         
         default:
         Console.WriteLine("Invalid input");
@@ -57,17 +54,48 @@ class Program{
 
 
     }
-    public static bool ValidateCoin(double cost){
-    
-    return false;
+    public static bool ValidateCoin(double CoinPaid){
+        double[] money = {.01, .05, .10, .25, 1.00, 5.00};
+        
+        foreach(double coin in money){
+            if (coin == CoinPaid){
+                return true;
+            }
+        }
+        return false;
     }
-    public static bool CheckPaid(double cost, double[] paid){
+    public static bool CheckAmountPaid(double sellingPrice, double[] paid){
         double TotalPaid = 0;
         
         for (int i = 0; i < paid.Length; i++){
             TotalPaid += paid[i];
         }
-        return TotalPaid >= cost;
+        return TotalPaid >= sellingPrice;
+    }
+
+//each time item is sold add to array, can use array.length to get total sales and return price for calculating profit
+//
+    public static void CalculateCost(double SellingPrice){
+        double cost = SellingPrice * 0.35;
+    }
+
+    public static void CalculateOverhead(double SellingPrice){
+        double laborCost = SellingPrice * 0.05;
+    }
+    public static void CalculateProfit(){
+
+    }
+
+     public static void CalculateLaborCost(double SellingPrice){
+        double laborCost = SellingPrice * 0.25;
+    }
+
+     public static void CalculateTotalSales(){
+        
+    }
+
+    public static void DisplayTotals(){
+        // display total cost, labor cost, overhead, profit, total sales, total sales per item
     }
 
 }
