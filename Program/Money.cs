@@ -1,3 +1,5 @@
+//this class is unused, decided on another method
+//this class will be used to verify money type
 namespace Currency {
     public class Money {
 

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.Design;
-using Currency;
+//using Currency; this was decided agains and a coin verification method was used 
 using Product;
 
 class Program
@@ -13,7 +13,7 @@ private static int passcodeAttempts = 0;
         int selection = 0;
         int FLAG = -1;  
 
-        //create products
+        //create products and menu
 
         Item coke = new Item("Coke", .95, InitialQuantity);
         Item doritos = new Item("Doritos", .75, InitialQuantity);
@@ -21,14 +21,16 @@ private static int passcodeAttempts = 0;
         Item chexMix = new Item("Chex Mix", .60, InitialQuantity);
         Item pepsi = new Item("Pepsi", .90, InitialQuantity);
 
-        Console
-            .WriteLine($"Menu:\n1. {coke.GetName()}       {coke.GetPrice()}");
+        Console.WriteLine($"Menu:\n1. {coke.GetName()}       {coke.GetPrice()}");
         Console.WriteLine($"2. {doritos.GetName()}    {doritos.GetPrice()}");
         Console.WriteLine($"3. {snickers.GetName()}   {snickers.GetPrice()}");
         Console.WriteLine($"4. {chexMix.GetName()}   {chexMix.GetPrice()}");
         Console.WriteLine($"5. {pepsi.GetName()}      {pepsi.GetPrice()}");
         Console.WriteLine("6. Display Totals\n-1. to exit program");
 
+
+        /* This block of code is a do-while loop that continuously prompts the user to enter an item
+        number until the user chooses to exit the program by entering -1. */
         do{
         Console.WriteLine("Enter item number: ");
         string input = Console.ReadLine();
@@ -100,6 +102,12 @@ private static int passcodeAttempts = 0;
         }while (selection != FLAG);
     }
 
+/// <summary>
+/// This C# function allows a user to insert coins until the total amount reaches or exceeds a specified
+/// price, providing change if necessary.
+/// The method `InsertCoin` returns a `List<double>` containing the coins that have been inserted by the
+/// user as payment.
+/// </returns>
     public static List<double> InsertCoin(double price)
     {
         List<double> payment = new List<double>();
@@ -137,7 +145,7 @@ private static int passcodeAttempts = 0;
     //validates if coin input is a valid U.S. coin
     public static bool ValidateCoin(double CoinPaid)
     {
-        double[] money = { .01, .05, .10, .25, 1.00, 5.00 };
+        double[] money = [.01, .05, .10, .25, 1.00, 5.00];
 
         foreach (double coin in money)
         {
@@ -206,6 +214,9 @@ private static int passcodeAttempts = 0;
         return items.Sum(item => item.GetPrice());
     }
 
+
+    /// The function `DisplayTotals` calculates and displays various financial totals for a list of
+    /// items, with a passcode verification mechanism.
     public static void DisplayTotals(List<Item> items)
     {
         const string Passcode = "114499";
